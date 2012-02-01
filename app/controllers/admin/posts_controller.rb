@@ -35,7 +35,7 @@ class Admin::PostsController < ApplicationController
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
-        format.html { redirect_to board_post_path(@board, @post), 
+        format.html { redirect_to admin_board_post_path(@board, @post), 
           :notice => 'Post was successfully updated.' }
       else
         format.html { render :edit }
@@ -50,7 +50,7 @@ class Admin::PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to board_posts_path(@board) }
+      format.html { redirect_to admin_board_path(@board) }
     end
   end
   
