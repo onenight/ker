@@ -29,6 +29,8 @@
 <% end %>
 </table>
 
+<br/>
+<%= will_paginate(@posts) %>
 <br />
 
 <%= link_to 'New Post', new_board_post_path(@board) %> |
