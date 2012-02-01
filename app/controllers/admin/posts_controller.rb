@@ -5,6 +5,24 @@ class Admin::PostsController < ApplicationController
   before_filter :find_board
   before_filter :authenticate_user!, :except => [ :index ]
   
+  # GET /posts
+  # GET /posts.json
+  def index
+    redirect_to admin_board_path(@board)
+  end
+
+  # GET /posts/1
+  # GET /posts/1.json
+  def show
+    @post = @board.posts.find(params[:id])
+  end
+  
+  # GET /posts/new
+  # GET /posts/new.json
+  def new
+    @post = @board.posts.build
+  end
+   
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])

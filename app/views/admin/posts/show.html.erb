@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @post.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @post.content %>
+</p>
+
+<br/>
+
+
+<%= link_to 'A-Edit', edit_admin_board_post_path(@board, @post) %> |
+<%= link_to 'A-Back', admin_board_path(@board) %>

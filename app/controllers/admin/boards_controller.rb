@@ -12,7 +12,14 @@ class Admin::BoardsController < ApplicationController
       format.html # index.html.erb
     end
   end
-
+  
+  # GET /boards/1
+  # GET /boards/1.json
+  def show
+    @board = Board.find(params[:id])
+    @posts = @board.posts
+  end
+  
   # GET /boards/new
   # GET /boards/new.json
   def new
@@ -31,7 +38,7 @@ class Admin::BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.save
-        format.html { redirect_to board_path(@board), 
+        format.html { redirect_to admin_board_path(@board), 
           :notice => 'Board was successfully created.' }
       else
         format.html { render :new }
@@ -46,7 +53,7 @@ class Admin::BoardsController < ApplicationController
 
     respond_to do |format|
       if @board.update_attributes(params[:board])
-        format.html { redirect_to board_path(@board), 
+        format.html { redirect_to admin_board_path(@board), 
           :notice => 'Board was successfully updated.' }
       else
         format.html { render :edit }

@@ -5,6 +5,7 @@
 		
 	  <% if current_user && current_user.is_admin? %>
 			<%= link_to 'Admin Panel', admin_boards_path %>
+			<%= link_to 'General Panel', boards_path %>
 	  <% end %>
 	
 	<% else%>

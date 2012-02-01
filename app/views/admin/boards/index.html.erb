@@ -11,7 +11,7 @@
 <% @boards.each do |board| %>
   <tr>
     <td><%= board.name %></td>
-    <td><%= link_to 'Show', board %></td>
+    <td><%= link_to 'A-Show', admin_board_path(board) %></td>
     <td><%= link_to 'A-Edit', edit_admin_board_path(board) %></td>
     <td><%= link_to 'A-Destroy', admin_board_path(board), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
