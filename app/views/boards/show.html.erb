@@ -22,7 +22,7 @@
 
     <% if post.user == current_user %>
 	  <td><%= link_to 'Edit', edit_board_post_path(@board, post) %></td>
-	  <td><%= link_to 'Destroy', board_post_path(post), :confirm => 'Are you sure?', :method => :delete %></td>
+	  <td><%= link_to 'Destroy', board_post_path(@board, post), :confirm => 'Are you sure?', :method => :delete %></td>
 	<% end %>
 	
   </tr>

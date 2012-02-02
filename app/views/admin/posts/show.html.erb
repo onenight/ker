@@ -10,6 +10,12 @@
   <%= @post.content %>
 </p>
 
+<% if @post.cool_image? %>
+<p>
+  <%= image_tag(@post.cool_image.url(:medium)) %>
+</p>
+<% end %>
+
 <br/>
 
 
