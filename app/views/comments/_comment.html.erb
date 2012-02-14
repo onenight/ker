@@ -1,0 +1,16 @@
+<h3>Comments</h3>
+<% @comments.each do |comment| %>
+<p>
+  <b>Commenter:</b>
+  <%= comment.commenter %> | <%= comment.id %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= comment.body %>
+</p>
+
+<%= link_to 'Delete', board_post_comment_path(@board, @post, comment),
+  				      :confirm => 'Are you sure?', :method => :delete %>
+
+<% end %>
