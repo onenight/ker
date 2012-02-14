@@ -15,6 +15,11 @@ gem "will_paginate"
 
 gem "paperclip"
 
+group :development do 
+	gem "hirb"
+	gem "hirb-unicode"
+end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

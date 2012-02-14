@@ -16,6 +16,12 @@
 </p>
 <% end %>
 
+<%= render "comments/comment" %>
+
+<% if user_signed_in? %>
+<%= render "comments/form" %>
+<% end %>
+
 <br/>
 
 <% if current_user && @post.user == current_user %>

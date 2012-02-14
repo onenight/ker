@@ -1,9 +1,11 @@
 Ker::Application.routes.draw do
-  
+
   devise_for :users
 
   resources :boards do
-    resources :posts
+    resources :posts do
+        resources :comments
+    end
   end
 
   namespace :admin do
