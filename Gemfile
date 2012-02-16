@@ -9,6 +9,8 @@ gem 'mysql2'
 
 gem 'json'
 
+gem "anjlab-bootstrap-rails", :require => "bootstrap-rails"
+
 gem "devise"
 
 gem "will_paginate"
