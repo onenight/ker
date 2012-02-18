@@ -3,29 +3,31 @@
 
 <div class="row">
   <div class="page-header">
-    <h1><%= @post.title%></h1>
-  </div>
-  <div class="span8">
-	<dl>
-	<% if @post.cool_image? %>
-	  <dt><%= image_tag(@post.cool_image.url(:medium)) %></dt>
-	<% end %>
-      <dd><%= @post.content %></dd>
-	</dl>
-	
-<% if current_user && @post.user == current_user %>
+    <h1><%= @post.title%>
+
+    <% if current_user && @post.user == current_user %>
 <%= link_to 'Edit-Post', edit_board_post_path(@board, @post), :class => "btn btn-warning" %>
-<%= link_to 'Destroy', board_post_path(@board, @post), :class => "btn btn-danger", :confirm => 'Are you sure?', :method => :delete %></a> 
-<% end %>
+<%= link_to 'Destroy', board_post_path(@board, @post), :class => "btn btn-danger", :confirm => 'Are you sure?', :method => :delete %>
+	<% end %>
+	</h1>
+	
+  </div>
+  <div class="span12">
+	<% if @post.cool_image? %>
+	  <p><%= image_tag(@post.cool_image.url(:medium)) %></p>
+	<% end %>
+      <p><%= @post.content %></p>
+
+  <hr>
   </div>
   
-  <div class="span8">
+  <div class="span12">
 <% if user_signed_in? %>
 <%= render "comments/form" %>
 <% end %>
   </div>
 
-  <div class="span8">
+  <div class="span12">
   <%= render "comments/comment" %>
   </div>
 </div>

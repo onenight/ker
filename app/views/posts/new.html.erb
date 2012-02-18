@@ -3,10 +3,11 @@
 </div>
 
 <div class="row">
-  <div class="span8">
+  <div class="span12">
 <%= form_for @post, :url => board_posts_path(@board), :html => { :multipart => true } do |f| %>
 <%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>
+  <hr>
   </div>
 </div>
 
