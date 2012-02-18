@@ -1,8 +1,13 @@
 class BoardsController < ApplicationController
+  
   # GET /boards
   # GET /boards.json
   def index
     @boards = Board.all
+        
+    @test1 = Board.find(1)
+    @test2 = Board.find(2)
+    @test3 = Board.find(3)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +19,7 @@ class BoardsController < ApplicationController
   # GET /boards/1.json
   def show
     @board = Board.find(params[:id])
-    @posts = @board.posts.recent.paginate(:page => params[:page], :per_page => 5)
+    @posts = @board.posts.recent.paginate(:page => params[:page], :per_page => 5 )
 
     respond_to do |format|
       format.html # show.html.erb

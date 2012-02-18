@@ -1,8 +1,14 @@
-<h1>Editing post</h1>
+<div class="page-header">
+  <h1>Editing... <small><%= @post.title %></small></h1>
+</div>
 
+<div class="row">
+  <div class="span8">
 <%= form_for @post, :url => board_post_path(@board, @post), :html => { :multipart => true } do |f| %>
 <%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>
+  </div>
+</div>
 
-<%= link_to 'Show-Post', board_post_path(@board, @post) %> |
-<%= link_to 'Back-To-Posts', board_posts_path(@board) %>
+<%= link_to 'Show-Post', board_post_path(@board, @post), :class => "btn" %>
+<%= link_to 'Back-To-Posts', board_posts_path(@board), :class => "btn" %>

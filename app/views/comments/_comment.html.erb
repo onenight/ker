@@ -1,16 +1,13 @@
-<h3>Comments</h3>
-<% @comments.each do |comment| %>
-<p>
-  <b>Commenter:</b>
-  <%= comment.commenter %> | <%= comment.id %>
-</p>
 
-<p>
-  <b>Body:</b>
-  <%= comment.body %>
-</p>
-
-<%= link_to 'Delete', board_post_comment_path(@board, @post, comment),
-  				      :confirm => 'Are you sure?', :method => :delete %>
-
-<% end %>
+    <h4>Comments</h4>
+	  <dl>
+        <% @comments.each do |comment| %>
+		<blockquote>
+        <dt><i class="icon-user"></i> <%= comment.commenter %>| <%= comment.id %> |
+			<%= link_to 'Delete', board_post_comment_path(@board, @post, comment),
+	  		    :class => "btn", :confirm => 'Are you sure?', :method => :delete %>
+	    </dt>
+        <dd><i class="icon-comment"></i> <%= comment.body %></dd>
+		</blockquote><br/>
+ 	    <% end %>
+      </dl>
