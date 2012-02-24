@@ -13,9 +13,11 @@ gem "anjlab-bootstrap-rails", :require => "bootstrap-rails"
 
 gem "devise"
 
-gem "will_paginate"
+gem "kaminari"
 
 gem "paperclip"
+
+gem "simple_form"
 
 group :development do 
 	gem "hirb"

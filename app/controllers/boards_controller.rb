@@ -19,7 +19,7 @@ class BoardsController < ApplicationController
   # GET /boards/1.json
   def show
     @board = Board.find(params[:id])
-    @posts = @board.posts.recent.paginate(:page => params[:page], :per_page => 5 )
+    @posts = @board.posts.order("created_at DESC").page(params[:page]).per(5)
 
     respond_to do |format|
       format.html # show.html.erb

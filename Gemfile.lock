@@ -61,6 +61,10 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.4)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -108,6 +112,9 @@ GEM
       railties (~> 3.1.0)
       sass (~> 3.1.10)
       tilt (~> 1.3.2)
+    simple_form (1.5.2)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -124,7 +131,6 @@ GEM
     unicode-display_width (0.1.1)
     warden (1.1.0)
       rack (>= 1.0)
-    will_paginate (3.0.2)
 
 PLATFORMS
   ruby
@@ -137,9 +143,10 @@ DEPENDENCIES
   hirb-unicode
   jquery-rails
   json
+  kaminari
   mysql2
   paperclip
   rails (= 3.1.0)
   sass-rails (~> 3.1.0)
+  simple_form
   uglifier
-  will_paginate

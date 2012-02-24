@@ -24,9 +24,9 @@
 <% end %>
 	 </tbody>
     </table><br/>
-    <div class="pagination pagination-centered">
+    <div class="pagination-centered">
 	  <ul>
-      <%= will_paginate(@posts) %>
+      <%= paginate @posts, :theme => "bootstrap" %>
 	  </ul>
   </div>
 <%= link_to 'New Post', new_board_post_path(@board), :class => "btn btn-primary" %>
