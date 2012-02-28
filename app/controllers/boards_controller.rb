@@ -4,11 +4,7 @@ class BoardsController < ApplicationController
   # GET /boards.json
   def index
     @boards = Board.all
-        
-    @test1 = Board.find(1)
-    @test2 = Board.find(2)
-    @test3 = Board.find(3)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @boards }

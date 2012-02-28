@@ -4,5 +4,5 @@ class Post < ActiveRecord::Base
   
   has_many :comments, :dependent => :destroy
 
-  has_attached_file :cool_image, :styles => { :medium => "700x700>", :thumb => "100x100>"}
+  has_attached_file :cool_image, :styles => { :medium => "600x600>", :thumb => "100x100>"}
 end

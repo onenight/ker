@@ -4,12 +4,9 @@
 
 <div class="row">
   <div class="span12">
-<%= form_for @post, :url => board_post_path(@board, @post), :html => { :multipart => true } do |f| %>
+<%= simple_form_for @post, :url => board_posts_path(@board), :html => { :multipart => true, :class => "form-vertical" } do |f| %>
 <%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>
   <hr>
   </div>
 </div>
-
-<%= link_to 'Show-Post', board_post_path(@board, @post), :class => "btn" %>
-<%= link_to 'Back-To-Posts', board_posts_path(@board), :class => "btn" %>
