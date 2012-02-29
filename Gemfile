@@ -19,6 +19,10 @@ gem "paperclip"
 
 gem "simple_form"
 
+group :production do
+  gem "pg"
+end
+
 group :development do 
 	gem "hirb"
 	gem "hirb-unicode"
