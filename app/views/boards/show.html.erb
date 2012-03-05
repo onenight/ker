@@ -1,15 +1,12 @@
 <div class="page-header">
   <h1><%= @board.name%> <small>Happy, Inspiration, Life</small></h1>
 </div>
-<table class="table table-striped"></br>
 
-<div class="row">
-  <div class="span12">
     <table class="table table-bordered table-striped">
   	  <thead>
-		<th style="width: 100px">ID</th>
-		<th>Title</th>
-		<th style="width: 150px">Replied</th>
+		<th style="width: 50px">ID</th>
+		<th style="width: 150">Title</th>
+		<th style="width: 50px">Replied</th>
 		<th style="width: 250px">Created</th>
 		<th style="width: 250px">Updated</th>
 	  </thead>
@@ -30,8 +27,13 @@
 	  <ul>
       <%= paginate @posts, :theme => "bootstrap" %>
 	  </ul>
-  </div>
-<%= link_to 'New Post', new_board_post_path(@board), :class => "btn btn-primary" %>
-<%= link_to 'Back-To-Boards', boards_path, :class => "btn" %>
-</div>
+	</div>	
+	<%= link_to 'New Post', new_board_post_path(@board), :class => "btn btn-primary" %>
+	<%= link_to 'Back-To-Boards', boards_path, :class => "btn" %>
 
+<% content_for :sidebar do %>
+  <%= render "common/sidebar_latest_post"%>
+<% end %>
+<% content_for :sidebar2 do %>
+  <%= render "common/sidebar_latest_comment"%>
+<% end %>

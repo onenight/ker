@@ -12,6 +12,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = @board.posts.find(params[:id])
+    @latest_posts = Post.order("created_at DESC").limit(6)
+    @latest_comments = Comment.order("created_at DESC").limit(6)
+    
     @comment = Comment.new
     
     @comments = @post.comments

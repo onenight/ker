@@ -1,0 +1,12 @@
+<table class="table table-bordered">
+  <thead>
+  <th class="well" style="width 200px">Latest Comments</th>
+  </thead>
+  <tdoby>
+  <% @latest_comments.each do |latest_comment| %>
+    <tr>
+    <td><%= link_to latest_comment.body.truncate(40), board_post_path(latest_comment.board_id, latest_comment.post_id) %></td>
+    </tr>
+  <% end %>
+  </tdoby>
+</table>

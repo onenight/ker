@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h1><%= @post.title%>
+  <h1><%= @post.title %>
 
     <% if current_user && @post.user == current_user %>
 <%= link_to 'Edit-Post', edit_board_post_path(@board, @post), :class => "label" %>
@@ -8,8 +8,7 @@
   </h1>	
 </div>
 
-
-  <div class="span6">
+  <div class="span9">
 	<div class="thumbnail">
 	<% if @post.cool_image? %>
 	  <p><%= image_tag(@post.cool_image.url(:medium)) %></p>
@@ -19,7 +18,7 @@
 	</div></br>
   </div>
   
-  <div class="span12">
+  <div class="span8">
 <% if user_signed_in? %>
 <%= render "comments/form" %>
 <% end %>
@@ -31,3 +30,9 @@
   <div class="span8">
 <%= link_to 'Back-To-Posts', board_posts_path(@board), :class => "btn" %>
   </div>
+<% content_for :sidebar do %>
+  <%= render "common/sidebar_latest_post"%>
+<% end %>
+<% content_for :sidebar2 do %>
+  <%= render "common/sidebar_latest_comment"%>
+<% end %>

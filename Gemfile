@@ -19,6 +19,10 @@ gem "paperclip"
 
 gem "simple_form"
 
+gem "populator"
+
+gem "faker"
+
 group :production do
   gem "pg"
 end
