@@ -1,4 +1,5 @@
 Ker::Application.routes.draw do
+  break if ARGV.join.include? 'assets:precompile'
 
   devise_for :users
 
