@@ -8,6 +8,7 @@ namespace :dev do
     
     User.populate 20 do |user|
       user.email = Faker::Internet.email
+      user.encrypted_password = Populator.words(3)
       Post.populate 1..10 do |post|
         post.title = Populator.words(1..5).titleize
         post.content = Populator.sentences(2..10)
