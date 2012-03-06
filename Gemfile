@@ -11,7 +11,7 @@ gem 'json'
 
 gem "anjlab-bootstrap-rails", :require => "bootstrap-rails"
 
-gem "devise"
+gem "devise", "2.0.0"
 
 gem "kaminari"
 
