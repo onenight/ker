@@ -16,6 +16,8 @@ namespace :dev do
         post.created_at = 1.years.ago..Time.now
         Comment.populate 2 do |comment|
           comment.body = Populator.words(5..10)
+          comment.board_id = post.board_id
+          comment.post_id = post.id
         end
       end
     end
