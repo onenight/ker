@@ -15,6 +15,12 @@ class Admin::PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = @board.posts.find(params[:id])
+    @latest_posts = Post.order("created_at DESC").limit(6)
+    @latest_comments = Comment.order("created_at DESC").limit(6)
+
+    @comment = Comment.new
+
+    @comments = @post.comments
   end
   
   # GET /posts/new
@@ -28,6 +34,19 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def create
+    @post = @board.posts.build(params[:post])
+
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_to admin_board_post_path(@board, @post), 
+          :notice => 'Post was successfully created.' }
+      else
+        format.html { render :new }
+      end
+    end
+  end
+  
   # PUT /posts/1
   # PUT /posts/1.json
   def update
@@ -46,7 +65,7 @@ class Admin::PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
-    @post = current_user.posts.find(params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
 
     respond_to do |format|

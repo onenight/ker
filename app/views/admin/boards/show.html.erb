@@ -14,7 +14,7 @@
 <% @posts.each do |post| %>
         <tr>
 		  <td><%= post.id %></td>
-    	  <td><%= link_to post.title, board_post_path(@board, post) %></td>
+    	  <td><%= link_to post.title, admin_board_post_path(@board, post) %></td>
 		  <td><%= post.comments.size %></td>
 	      <td><%= post.created_at.strftime("%R %v") %></td>
 	      <td><%= post.updated_at.strftime("%R %v") %></td>
@@ -28,7 +28,7 @@
       <%= paginate @posts, :theme => "bootstrap" %>
 	  </ul>
 	</div>	
-	<%= link_to 'New Post', new_board_post_path(@board), :class => "btn btn-primary" %>
+	<%= link_to 'New Post', new_admin_board_post_path(@board), :class => "btn btn-primary" %>
 	<%= link_to 'Edit Board', edit_admin_board_path(@board), :class => "btn" %>
 	<%= link_to 'Back-To-Boards', boards_path, :class => "btn" %>
 	<%= link_to 'Back-To-AdminBoards', admin_boards_path, :class => "btn" %>

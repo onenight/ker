@@ -2,8 +2,8 @@
   <h1><%= @post.title %>
 
    
-<%= link_to 'A-Edit-Post', edit_admin_board_post_path(@board, post), :class => "label" %>
-<%= link_to 'A-Destroy', admin_board_post_path(@board, post), :class => "label", :confirm => 'Are you sure?', :method => :delete %>
+<%= link_to 'A-Edit-Post', edit_admin_board_post_path(@board, @post), :class => "label" %>
+<%= link_to 'A-Destroy', admin_board_post_path(@board, @post), :class => "label", :confirm => 'Are you sure?', :method => :delete %>
 
   </h1>	
 </div>
@@ -28,7 +28,7 @@
   <%= render "comments/comment" %>
   </div>
   <div class="span8">
-<%= link_to 'Back-To-Posts', board_posts_path(@board), :class => "btn" %>
+<%= link_to 'Back-To-Posts', admin_board_posts_path(@board), :class => "btn" %>
   </div>
 <% content_for :sidebar do %>
   <%= render "common/sidebar_latest_post"%>

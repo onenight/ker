@@ -1,8 +1,12 @@
-<h1>Editing post</h1>
+<div class="page-header">
+  <h1>Editing... <small><%= @post.title %></small></h1>
+</div>
 
-<%= form_for @post, :url => admin_board_post_path(@board, @post), :html => { :multipart => true } do |f| %>
+<div class="row">
+  <div class="span12">
+<%= simple_form_for @post, :url => admin_board_post_path(@board, @post), :html => { :multipart => true, :class => "form-vertical" } do |f| %>
 <%= render :partial => 'form', :locals => { :f => f } %>
 <% end %>
-
-<%= link_to 'A-Show', admin_board_post_path(@board, @post) %> |
-<%= link_to 'A-Back', admin_board_path(@board) %>
+  <hr>
+  </div>
+</div>
