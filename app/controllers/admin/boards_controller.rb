@@ -1,6 +1,6 @@
 class Admin::BoardsController < ApplicationController
   layout 'admin'
-  
+  load_and_authorize_resource
   before_filter :require_is_admin
   
   # GET /boards

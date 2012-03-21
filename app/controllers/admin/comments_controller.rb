@@ -1,4 +1,8 @@
-class CommentsController < ApplicationController
+class Admin::CommentsController < ApplicationController
+  layout 'admin'
+  load_and_authorize_resource
+  
+  before_filter :require_is_admin
   before_filter :find_board
   before_filter :find_post
   
