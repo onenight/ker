@@ -1,0 +1,18 @@
+<div id ="myModal" class="modal hide fade">
+  <div class="modal-header">
+    <h4>Comment <small>or click background to leave</small></h4>
+  </div>
+
+<%= simple_form_for @comment, :url => board_post_comments_path(@board, @post),
+ :html => { :class => "form-horizontal" } do |f| %>
+
+<%= f.input :body, :input_html => { :class => "span12"},
+			:label => "<h5>write down your comment here</h5>",
+			:placeholer => "Enter the commenter here" %>
+  <div class="modal-footer">
+<%= f.button :submit, :class => "btn btn-primary" %>
+  </div>
+<% end %>
+</div>
+
+<a data-toggle="modal" href="#myModal" class="btn btn-primary">Comment</a>

@@ -1,23 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1><%= @post.title %>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+   
+<%= link_to 'A-Edit-Post', edit_admin_board_post_path(@board, post), :class => "label" %>
+<%= link_to 'A-Destroy', admin_board_post_path(@board, post), :class => "label", :confirm => 'Are you sure?', :method => :delete %>
 
-<p>
-  <b>Content:</b>
-  <%= @post.content %>
-</p>
+  </h1>	
+</div>
 
-<% if @post.cool_image? %>
-<p>
-  <%= image_tag(@post.cool_image.url(:medium)) %>
-</p>
+  <div class="span9">
+	<div class="thumbnail">
+	<% if @post.cool_image? %>
+	  <p><%= image_tag(@post.cool_image.url(:medium)) %></p>
+	<% end %>
+
+      <p><h3><%= @post.content %></h3></p>
+	</div></br>
+  </div>
+  
+  <div class="span8">
+<% if user_signed_in? %>
+<%= render "comments/form" %>
 <% end %>
+  </div>
 
-<br/>
-
-
-<%= link_to 'A-Edit', edit_admin_board_post_path(@board, @post) %> |
-<%= link_to 'A-Back', admin_board_path(@board) %>
+  <div class="span8">
+  <%= render "comments/comment" %>
+  </div>
+  <div class="span8">
+<%= link_to 'Back-To-Posts', board_posts_path(@board), :class => "btn" %>
+  </div>
+<% content_for :sidebar do %>
+  <%= render "common/sidebar_latest_post"%>
+<% end %>
+<% content_for :sidebar2 do %>
+  <%= render "common/sidebar_latest_comment"%>
+<% end %>

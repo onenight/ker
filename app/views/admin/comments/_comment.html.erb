@@ -1,0 +1,15 @@
+</br>
+    <h4>Comments</h4>
+	  <dl>
+        <% @comments.each do |comment| %>
+		<div class="well">
+        <dt><i class="icon-user"></i> <%= comment.user_id %> 
+	        <% if current_user && comment.user_id == current_user.id %>
+			<%= link_to 'Delete', board_post_comment_path(@board, @post, comment),
+	  		    :class => "label", :confirm => 'Are you sure?', :method => :delete %>
+			<% end %>
+	    </dt>
+        <dd><i class="icon-comment"></i> <%= comment.body %></dd>
+		</div>
+ 	    <% end %>
+      </dl>

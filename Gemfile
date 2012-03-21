@@ -19,6 +19,8 @@ gem "paperclip"
 
 gem "simple_form"
 
+gem "cancan"
+
 gem "populator"
 
 gem "faker"
