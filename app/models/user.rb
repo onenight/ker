@@ -9,9 +9,17 @@ class User < ActiveRecord::Base
   
   has_many :posts
   
-  attr_protected :is_admin
+  attr_protected :admin
   
-  def is_admin?
+  def admin?
     is_admin
+  end
+  
+  def has_role?(role)
+    case role
+    when :admin then admin?
+    when :member then true
+    else false
+    end
   end
 end

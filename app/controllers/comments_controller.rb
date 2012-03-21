@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  load_and_authorize_resource
+  
   before_filter :find_board
   before_filter :find_post
   

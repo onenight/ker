@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+  
   before_filter :find_board
   before_filter :authenticate_user!, :except => [ :show, :index ]
   
