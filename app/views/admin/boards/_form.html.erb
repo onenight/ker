@@ -1,20 +1,10 @@
+<%= simple_form_for @board, :html => { :multipart => true, :class => "form-vertical" } do |f| %>
 
-  <% if @board.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@board.errors.count, "error") %> prohibited this board from being saved:</h2>
+<%= f.input :name, :input_html => { :class => "span6" },
+			:label => "<h3>Board Name</h3>",
+			:placeholder => "What Name would you talk?" %>
+<%= f.button :submit, :class => "btn btn-primary"%>
+<%= link_to "Cancel", admin_boards_path, :class => "btn btn-danger"%>
 
-      <ul>
-      <% @board.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
