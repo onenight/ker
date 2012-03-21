@@ -6,8 +6,8 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 
-admin = User.new(:email => "even1990@hotmail.com.tw", :password => "onster",
-:password_confirmation => "onster" )
+admin = User.new(:email => "1230@g.com", :password => "123123",
+:password_confirmation => "123123" )
 admin.is_admin = true
 admin.save!
 
