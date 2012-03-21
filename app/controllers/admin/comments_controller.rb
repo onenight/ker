@@ -49,7 +49,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to board_post_path(@board, @post), :notice => 'Comment was successfully created.' }
+        format.html { redirect_to admin_board_post_path(@board, @post), :notice => 'Comment was successfully created.' }
         format.json { render :json => @comment, :status => :created, :location => @comment }
       else
         format.html { render :action => "new" }
@@ -81,7 +81,7 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     respond_to do |format|
-      format.html { redirect_to board_post_path(@board, @post) }
+      format.html { redirect_to admin_board_post_path(@board, @post) }
       format.json { head :ok }
     end
   end
