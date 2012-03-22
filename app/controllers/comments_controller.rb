@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
   load_and_authorize_resource
   
-  before_filter :find_board
-  before_filter :find_post
+  before_filter :find_board_and_post
   
   # GET /comments
   # GET /comments.json
@@ -89,10 +88,8 @@ class CommentsController < ApplicationController
   end
   
   protected
-  def find_board
+  def find_board_and_post
     @board = Board.find(params[:board_id])
-  end
-  def find_post
     @post = Post.find(params[:post_id])
   end
 end

@@ -15,18 +15,13 @@ class Ability
         #Post
       can :create, Post
       can :edit, Post
-      can :update, Post do |post|
-        post.user_id == user.id
-      end
-      can :destroy, Post do |post|
-         post.user_id == user.id
-      end
+      can :update, Post { |post| post.user_id == user.id }
+      can :destroy, Post { |post| post.user_id == user.id }
         
         #Comment
       can :create, Comment
-      can :destroy, Comment do |comment|
-        comment.user_id == user.id
-      end
+      can :destroy, Comment { |comment| comment.user_id == user.id }
+
       basic_read_only
     else
       #Unknown
